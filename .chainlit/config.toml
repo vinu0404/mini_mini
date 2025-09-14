@@ -1,0 +1,84 @@
+[project]
+# Whether to enable telemetry (default: true). No personal data is collected.
+enable_telemetry = true
+
+# List of environment variables to be provided by each user to use the app.
+user_env = []
+
+# Duration (in seconds) during which the session is saved when the connection is lost
+session_timeout = 3600
+
+# Enable third parties caching (e.g LangChain cache)
+cache = false
+
+# Authorized origins
+allow_origins = ["*"]
+
+[features]
+# Show the prompt playground
+prompt_playground = true
+
+# Process and display HTML in messages. This can be a security risk (see https://stackoverflow.com/questions/19603097/why-is-it-dangerous-to-render-user-generated-html-or-javascript)
+unsafe_allow_html = false
+
+# Process and display mathematical expressions. This can clash with $-based syntax
+latex = false
+
+# Automatically tag threads when a feedback is provided
+auto_tag_thread = true
+
+# DISABLED: Authorize users to upload files with messages
+upload_file = false
+
+# DISABLED: Accept multi file upload
+multi_modal = false
+
+# DISABLED: Maximum number of files a user can upload at once
+max_files = 0
+
+# DISABLED: Maximum file size (in MB) for uploads
+max_file_size_mb = 0
+
+# DISABLED: Authorize users to spontaneously upload files with messages
+[features.spontaneous_file_upload]
+enabled = false
+
+[UI]
+# Name of the app and chatbot.
+name = "GitSpeak"
+
+# Show the readme while the thread is empty.
+show_readme_as_default = true
+
+# Description of the app and chatbot. This is used for HTML tags.
+description = "Code repository analysis and conversation tool"
+
+# Large size content are by default collapsed for a cleaner ui
+default_collapse_content = true
+
+# The default value for the expand messages settings.
+default_expand_messages = false
+
+# Hide the chain of thought details from the user in the UI.
+hide_cot = false
+
+# Link to your github repo. This will add a github button in the UI's header.
+# github = ""
+
+# Specify a CSS file that can be used to customize the user interface.
+# The CSS file can be served from the public directory or via an external link.
+# custom_css = "/public/test.css"
+
+[UI.theme]
+default_dark_mode = false
+
+[UI.theme.light]
+#background = "#FAFAFA"
+#paper = "#FFFFFF"
+
+[UI.theme.dark]
+#background = "#1F1F1F"
+#paper = "#2D2D30"
+
+[meta]
+generated_by = "1.3.0"

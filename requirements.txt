@@ -1,0 +1,14 @@
+langchain
+langchain-openai
+faiss-cpu
+chainlit
+langgraph
+pydantic
+python-dotenv
+GitPython
+langchain_community
+langgraph-checkpoint-sqlite
+nbformat
+requests
+aiosqlite
+langsmith
