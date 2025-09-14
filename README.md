@@ -4,7 +4,7 @@
 
 GitSpeak is an AI-powered Code Quality Intelligence Agent that analyzes code repositories and generates actionable, developer-friendly reports. It goes beyond simple linting to understand code structure, detect real issues, and provide practical insights to help developers understand their codebases.
 
-**Live Demo:** https://gitspeak.onrender.com/
+**Live Demo:** https://gitspeak-langgraph-mcp1.onrender.com
 
 **Video:** 
 
@@ -19,7 +19,7 @@ GitSpeak is an AI-powered Code Quality Intelligence Agent that analyzes code rep
 - **Configuration Files:** Analysis of Dockerfiles, Makefiles, requirements.txt, package.json
 
 #### Repository Analysis
-- **Local & Remote:** Accepts GitHub/GitLab 
+- **Accepts URL:** GitHub/GitLab 
 - **Private Repository Support:** GitHub token integration for private repo access and analysis about pull requests
 - **Public Repository Fallback:** Git clone for public repos when no token available
 - **Caching System:** Persistent storage of analyzed repositories.Used SqliteSaver for that.
@@ -30,7 +30,7 @@ GitSpeak is an AI-powered Code Quality Intelligence Agent that analyzes code rep
 **Code files Analysis**
    - Ask about any code files
    - Tries to analyze files & releanship with each other
-#### Quality Issue Detection using Quaity Agent
+#### Security Issue Detection using Security Agent
 
 
 **Security Vulnerabilities**
@@ -49,7 +49,10 @@ GitSpeak is an AI-powered Code Quality Intelligence Agent that analyzes code rep
    - Algorithmic complexity issues
    - Caching opportunities
 
+#### Quality Issue Detection using Quaity Agent
 
+- For Report,Charts and Mermaid diagram  Geneartion
+- For summary Generation of whole Project
 
 #### Interactive Q&A System
 - **Natural Language Processing:** Conversational interface for code queries
@@ -65,7 +68,7 @@ GitSpeak is an AI-powered Code Quality Intelligence Agent that analyzes code rep
 - **Image Support:** Inline display of charts and diagrams
 - **Session Management:** Persistent conversations and repository caching
 
-#### Rich Visualizations
+#### Visualizations
 - **Chart Generation:** QuickChart.io integration for metrics visualization
   - Bar charts for comparisons
   - Line charts for trends
@@ -275,15 +278,22 @@ flowchart TD
 
 ### Environment Variables
 ```bash
-OPENAI_API_KEY=your_openai_api_key
+OPENAI_API_KEY=openai_api_key
 GITHUB_TOKEN=your_github_token  # Optional
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_API_KEY=
+LANGCHAIN_PROJECT=gitspeak #any name 
+LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 ```
 
 ### Installation
 ```bash
-git clone <your-repository-url>
-cd abbbc
+git clone https://github.com/vinu0404/mini_mini.git
+cd mini_mini
+python -m venv venv
+.\venv\Scripts\activate
 pip install -r requirements.txt
+chainlit run main.py
 ```
 
 ### Dependencies
@@ -370,7 +380,7 @@ GitSpeak integrates **LangSmith** for comprehensive monitoring:
 
 ## Deployment
 
-**Live Application:** https://gitspeak.onrender.com/
+**Live Application:** https://gitspeak-langgraph-mcp1.onrender.com
 
 ## Challenges & Solutions
 
@@ -383,12 +393,11 @@ GitSpeak integrates **LangSmith** for comprehensive monitoring:
 ### Challenge: Irrelevant Code Chunk Retrieval
 **Solution:** Created a dedicated `batch_relevant_code_chunk` node that employs a structured LLM evaluation to classify each retrieved code chunk as "relevant" or "not relevant" based on query intent. Only relevant chunks are passed to subsequent agents, significantly improving analysis accuracy and reducing noise in the multi-agent workflow.
 
-## Evaluation Summary
 
-GitSpeak successfully implements all required features:
+### GitSpeak successfully implemented all the listed  features below:
 
 ### Core Requirements 
-- Multi-language support (12+ languages)
+- Multi-language support (6+ languages)
 - Quality issue detection (Security, Performance, Code Quality)
 - Interactive Q&A system
 - Comprehensive reporting
@@ -409,5 +418,5 @@ GitSpeak successfully implements all required features:
 - Dual visualization system (charts + diagrams)
 - Intelligent agent routing
 - Pull request analysis capabilities
-- Advanced error handling and resilience
+- Advanced error handling
 - Comprehensive monitoring with LangSmith
